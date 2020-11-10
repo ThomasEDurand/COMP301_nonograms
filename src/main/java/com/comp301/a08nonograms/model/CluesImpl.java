@@ -7,7 +7,7 @@ public class CluesImpl implements Clues {
   private int totalShaded;
 
   public CluesImpl(int[][] rowClues, int[][] colClues) {
-    if(rowClues == null || colClues == null){
+    if (rowClues == null || colClues == null) {
       throw new NullPointerException();
     }
     this.rowClues = rowClues;
@@ -42,12 +42,12 @@ public class CluesImpl implements Clues {
 
   @Override
   public int getRowCluesLength() {
-    return rowClues.length;
+    return rowClues[0].length;
   }
 
   @Override
   public int getColCluesLength() {
-    return colClues.length;
+    return colClues[0].length;
   }
 
   public int getTotalShaded() {
