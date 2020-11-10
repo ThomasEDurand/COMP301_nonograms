@@ -1,12 +1,16 @@
 package com.comp301.a08nonograms.model;
 
-public class CluesImpl implements Clues{
+public class CluesImpl implements Clues {
+
   private int[][] rowClues;
   private int[][] colClues;
   private int totalShaded;
 
   public CluesImpl(int[][] rowClues, int[][] colClues) {
-    this.rowClues = colClues;
+    if(rowClues == null || colClues == null){
+      throw new NullPointerException();
+    }
+    this.rowClues = rowClues;
     this.colClues = colClues;
 
     for (int[] rowClue : rowClues) {
@@ -14,18 +18,17 @@ public class CluesImpl implements Clues{
         totalShaded += i;
       }
     }
-
   }
 
   @Override
   public int getWidth() {
-    return rowClues.length;
-  }
+    return colClues.length;
+  } // num of cols is the width
 
   @Override
   public int getHeight() {
-    return colClues.length;
-  }
+    return rowClues.length;
+  } // num of cols is the length
 
   @Override
   public int[] getRowClues(int index) {
@@ -39,14 +42,16 @@ public class CluesImpl implements Clues{
 
   @Override
   public int getRowCluesLength() {
-    return colClues[0].length;
+    return rowClues.length;
   }
 
   @Override
   public int getColCluesLength() {
-    return colClues[0].length;
+    return colClues.length;
   }
 
-  public int getTotalShaded(){return totalShaded;}
+  public int getTotalShaded() {
+    return totalShaded;
+  }
 
 }

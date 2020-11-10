@@ -6,7 +6,8 @@ import com.comp301.a08nonograms.model.ModelImpl;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-public class ControllerImpl implements Controller{
+public class ControllerImpl implements Controller {
+
   ModelImpl model;
 
   public ControllerImpl(ModelImpl model) {
@@ -46,7 +47,7 @@ public class ControllerImpl implements Controller{
 
   @Override
   public void nextPuzzle() {
-    if(getPuzzleIndex() < getPuzzleCount() - 1) {
+    if (getPuzzleIndex() < getPuzzleCount() - 1) {
       model.setPuzzleIndex(getPuzzleIndex() + 1);
     } else {
       model.setPuzzleIndex(0);
@@ -55,7 +56,7 @@ public class ControllerImpl implements Controller{
 
   @Override
   public void prevPuzzle() {
-    if(getPuzzleIndex() > 0) {
+    if (getPuzzleIndex() > 0) {
       model.setPuzzleIndex(getPuzzleIndex() - 1);
     } else {
       model.setPuzzleIndex(getPuzzleCount() - 1);

@@ -1,14 +1,16 @@
 package com.comp301.a08nonograms.model;
 
-public class BoardImpl implements Board{
+public class BoardImpl implements Board {
+
   public enum selection {SPACE, SHADED, ELIMINATED}
+
   public selection[][] board;
   private int rows;
   private int columns;
   private int numShaded;
   private int numEliminated;
 
-  public BoardImpl(int rows, int columns){
+  public BoardImpl(int rows, int columns) {
     this.rows = rows;
     this.columns = columns;
     board = new selection[rows][columns];
@@ -34,13 +36,13 @@ public class BoardImpl implements Board{
 
   @Override
   public void toggleCellShaded(int row, int col) {
-    if(board[row][col] == selection.SHADED){
+    if (board[row][col] == selection.SHADED) {
       board[row][col] = selection.SPACE;
       numShaded--;
-    } else if(board[row][col] == selection.SPACE) {
+    } else if (board[row][col] == selection.SPACE) {
       board[row][col] = selection.SPACE;
       numShaded++;
-    }else { // if eliminated
+    } else { // if eliminated
       board[row][col] = selection.SHADED;
       numEliminated--;
       numShaded++;
@@ -49,14 +51,13 @@ public class BoardImpl implements Board{
 
   @Override
   public void toggleCellEliminated(int row, int col) {
-    if(board[row][col] == selection.ELIMINATED){
+    if (board[row][col] == selection.ELIMINATED) {
       board[row][col] = selection.SPACE;
       numEliminated--;
-    } else if (board[row][col] == selection.SPACE){
+    } else if (board[row][col] == selection.SPACE) {
       board[row][col] = selection.ELIMINATED;
       numEliminated++;
-    }
-    else { // if Shaded
+    } else { // if Shaded
       board[row][col] = selection.ELIMINATED;
       numEliminated++;
       numShaded--;
@@ -65,18 +66,18 @@ public class BoardImpl implements Board{
 
   @Override
   public void clear() {
-    for(int i = 0; i < this.rows; i++){
-      for(int j = 0; j < this.columns; j++){
+    for (int i = 0; i < this.rows; i++) {
+      for (int j = 0; j < this.columns; j++) {
         board[i][j] = selection.SPACE;
       }
     }
   }
 
-  public int getNumShaded(){
+  public int getNumShaded() {
     return numShaded;
   }
 
-  public int getNumEliminated(){
+  public int getNumEliminated() {
     return numEliminated;
   }
 

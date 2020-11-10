@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class ModelImpl implements Model {
+
   BoardImpl board;
   List<Clues> cluesList;
   List<ModelObserver> modelObservers;
@@ -13,8 +14,8 @@ public class ModelImpl implements Model {
   public Puzzle activePuzzle;
 
   public ModelImpl(List<Clues> clues) {
-      this.cluesList = clues;
-      activePuzzle = new Puzzle(clues.get(0)); // default set active puzzle as first puzzle
+    this.cluesList = clues;
+    activePuzzle = new Puzzle(clues.get(0)); // default set active puzzle as first puzzle
   }
 
   @Override
@@ -49,28 +50,28 @@ public class ModelImpl implements Model {
 
     // quick check to see if number shaded on board = number shaded from clues
     // should fix edge case in for loops checking a cluster on that ends with the board
-    if(activePuzzle.getBoard().getNumShaded() != activePuzzle.getClue().getTotalShaded()){
+    if (activePuzzle.getBoard().getNumShaded() != activePuzzle.getClue().getTotalShaded()) {
       return false;
     }
 
     // Check Row Clues
-    for(int i = 0; i < getHeight(); i++){ // for every row
+    for (int i = 0; i < getHeight(); i++) { // for every row
 
       int clusterSize = 0;
       int clusterNumber = 0;
       boolean inCluster = false;
-      for(int j = 0; j < getWidth(); j++){ // for each element of a row
-        if(isSpace(i,j)){
+      for (int j = 0; j < getWidth(); j++) { // for each element of a row
+        if (isSpace(i, j)) {
           return false; // Should be no spaces, only shaded and eliminated
-        } else if (isShaded(i, j)){
+        } else if (isShaded(i, j)) {
           inCluster = true;
-          if(clusterSize > activePuzzle.getClue().getRowClues(i)[clusterNumber]){
+          if (clusterSize > activePuzzle.getClue().getRowClues(i)[clusterNumber]) {
             return false;
           }
           clusterSize++;
         } else { // eliminated, end of cluster
-          if(inCluster){
-            if(clusterSize != activePuzzle.getClue().getRowClues(i)[clusterNumber]){
+          if (inCluster) {
+            if (clusterSize != activePuzzle.getClue().getRowClues(i)[clusterNumber]) {
               return false;
             } else {
               inCluster = false;
@@ -84,23 +85,23 @@ public class ModelImpl implements Model {
 
     // Check Col Clues
 
-    for(int i = 0; i < getWidth(); i++){ // for every column
+    for (int i = 0; i < getWidth(); i++) { // for every column
 
       int clusterSize = 0;
       int clusterNumber = 0;
       boolean inCluster = false;
-      for(int j = 0; j < getHeight(); j++){ // for each element of a row
-        if(isSpace(j,i)){
+      for (int j = 0; j < getHeight(); j++) { // for each element of a row
+        if (isSpace(j, i)) {
           return false; // Should be no spaces, only shaded and eliminated
-        } else if (isShaded(j, i)){
+        } else if (isShaded(j, i)) {
           inCluster = true;
-          if(clusterSize > activePuzzle.getClue().getColClues(i)[clusterNumber]){
+          if (clusterSize > activePuzzle.getClue().getColClues(i)[clusterNumber]) {
             return false;
           }
           clusterSize++;
         } else { // eliminated, end of cluster
-          if(inCluster){
-            if(clusterSize != activePuzzle.getClue().getColClues(i)[clusterNumber]){
+          if (inCluster) {
+            if (clusterSize != activePuzzle.getClue().getColClues(i)[clusterNumber]) {
               return false;
             } else {
               inCluster = false;
@@ -111,7 +112,7 @@ public class ModelImpl implements Model {
         }
       }
     }
-    
+
     return true;
   }
 
