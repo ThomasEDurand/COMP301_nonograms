@@ -19,6 +19,7 @@ public class PuzzleLibrary {
     return clues;
   }
 
+
   private static void createPuzzleLibrary() {
     clues = new ArrayList<>();
 
