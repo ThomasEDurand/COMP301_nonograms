@@ -8,7 +8,7 @@ public class Puzzle {
 
   public Puzzle(Clues clues, int puzzleIndex) {
     this.clue = (CluesImpl) clues;
-    this.board = new BoardImpl(clues.getColCluesLength(), clues.getColCluesLength());
+    this.board = new BoardImpl(clues.getRowCluesLength(), clues.getColCluesLength());
     this.puzzleIndex = puzzleIndex;
   }
 

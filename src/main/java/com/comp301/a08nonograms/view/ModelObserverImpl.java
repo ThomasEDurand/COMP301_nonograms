@@ -8,7 +8,8 @@ import com.comp301.a08nonograms.model.ModelObserver;
 public class ModelObserverImpl implements ModelObserver {
 
   ModelImpl model;
-  public ModelObserverImpl(){
+
+  public ModelObserverImpl() {
     model = new ModelImpl(PuzzleLibrary.create());
   }
 
