@@ -6,10 +6,10 @@ public class Puzzle {
   private BoardImpl board;
   private int puzzleIndex;
 
-  public Puzzle(Clues clues) {
+  public Puzzle(Clues clues, int puzzleIndex) {
     this.clue = (CluesImpl) clues;
     this.board = new BoardImpl(clues.getColCluesLength(), clues.getColCluesLength());
-    this.puzzleIndex = 0; // TODO: Get index in list of puzzles
+    this.puzzleIndex = puzzleIndex;
   }
 
   public int getPuzzleIndex() {

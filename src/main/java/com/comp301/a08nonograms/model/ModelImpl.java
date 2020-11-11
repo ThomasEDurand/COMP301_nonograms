@@ -2,25 +2,30 @@ package com.comp301.a08nonograms.model;
 
 import com.comp301.a08nonograms.PuzzleLibrary;
 import com.sun.scenario.effect.Blend.Mode;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class ModelImpl implements Model {
 
-  BoardImpl board;
-  List<Clues> cluesList;
-  List<ModelObserver> modelObservers;
+  ArrayList<Puzzle> puzzleList;
+  ArrayList<ModelObserver> modelObservers;
+  int puzzleIndex;
 
   public Puzzle activePuzzle;
 
   public ModelImpl(List<Clues> clues) {
-    this.cluesList = clues;
-    activePuzzle = new Puzzle(clues.get(0)); // default set active puzzle as first puzzle
+    puzzleList = new ArrayList<>();
+    for(int i = 0; i < clues.size(); i++){
+      puzzleList.add(new Puzzle(clues.get(i), i)); // create an list of puzzles with indicies
+    }
+    activePuzzle = puzzleList.get(0); // default set active puzzle as first puzzle
+    puzzleIndex = activePuzzle.getPuzzleIndex();
   }
 
   @Override
   public int getPuzzleCount() {
-    return cluesList.size();
+    return puzzleList.size();
   }
 
   @Override
