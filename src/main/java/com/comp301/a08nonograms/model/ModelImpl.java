@@ -35,7 +35,7 @@ public class ModelImpl implements Model {
 
   @Override
   public void setPuzzleIndex(int index) {
-    activePuzzle.setPuzzleIndex(index);
+    activePuzzle = puzzleList.get(index);
   }
 
   @Override
@@ -50,8 +50,6 @@ public class ModelImpl implements Model {
 
   @Override
   public boolean isSolved() {
-
-    // TODO: Implement Solved method
 
     // quick check to see if number shaded on board = number shaded from clues
     // should fix edge case in for loops checking a cluster on that ends with the board
@@ -182,6 +180,5 @@ public class ModelImpl implements Model {
   public int getColCluesLength() {
     return activePuzzle.getClue().getColCluesLength();
   }
-
 
 }
