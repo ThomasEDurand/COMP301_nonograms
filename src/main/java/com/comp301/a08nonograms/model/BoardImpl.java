@@ -21,21 +21,33 @@ public class BoardImpl implements Board {
 
   @Override
   public boolean isShaded(int row, int col) {
-    return board[row][col] == selection.SHADED;
+    if(row >= rows || row < 0 || col >= columns || col < 0){
+      throw new RuntimeException();
+    }
+    return (board[row][col] == selection.SHADED);
   }
 
   @Override
   public boolean isEliminated(int row, int col) {
-    return board[row][col] == selection.ELIMINATED;
+    if(row >= rows || row < 0 || col >= columns || col < 0){
+      throw new RuntimeException();
+    }
+    return (board[row][col] == selection.ELIMINATED);
   }
 
   @Override
   public boolean isSpace(int row, int col) {
-    return board[row][col] == selection.SPACE;
+    if(row >= rows || row < 0 || col >= columns || col < 0){
+      throw new RuntimeException();
+    }
+    return (board[row][col] == selection.SPACE);
   }
 
   @Override
   public void toggleCellShaded(int row, int col) {
+    if(row >= rows || row < 0 || col >= columns || col < 0){
+      throw new RuntimeException();
+    }
     if (board[row][col] == selection.SHADED) {
       board[row][col] = selection.SPACE;
       numShaded--;
@@ -51,6 +63,9 @@ public class BoardImpl implements Board {
 
   @Override
   public void toggleCellEliminated(int row, int col) {
+    if(row >= rows || row < 0 || col >= columns || col < 0){
+      throw new RuntimeException();
+    }
     if (board[row][col] == selection.ELIMINATED) {
       board[row][col] = selection.SPACE;
       numEliminated--;
