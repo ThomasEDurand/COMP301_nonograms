@@ -1,6 +1,7 @@
 package com.comp301.a08nonograms.model;
 
 import com.comp301.a08nonograms.PuzzleLibrary;
+import com.comp301.a08nonograms.view.ModelObserverImpl;
 import com.sun.scenario.effect.Blend.Mode;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class ModelImpl implements Model {
 
   public ModelImpl(List<Clues> clues) {
     puzzleList = new ArrayList<>();
-    for(int i = 0; i < clues.size(); i++){
+    for (int i = 0; i < clues.size(); i++) {
       puzzleList.add(new Puzzle(clues.get(i), i)); // create an list of puzzles with indicies
     }
     activePuzzle = puzzleList.get(0); // default set active puzzle as first puzzle
@@ -137,7 +138,7 @@ public class ModelImpl implements Model {
   @Override
   public void toggleCellShaded(int row, int col) {
     activePuzzle.getBoard().toggleCellShaded(row, col);
-    notify();
+
   }
 
   @Override
@@ -180,5 +181,10 @@ public class ModelImpl implements Model {
   public int getColCluesLength() {
     return activePuzzle.getClue().getColCluesLength();
   }
+
+  public void notifyObs() {
+    // TODO
+  }
+
 
 }
