@@ -87,6 +87,7 @@ public class BoardImpl implements Board {
     }
   }
 
+  // helper functions
   public int getNumShaded() {
     return numShaded;
   }

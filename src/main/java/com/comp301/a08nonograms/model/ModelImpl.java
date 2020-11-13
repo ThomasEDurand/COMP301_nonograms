@@ -8,15 +8,12 @@ import java.util.List;
 import java.util.Random;
 
 public class ModelImpl implements Model {
-
   ArrayList<Puzzle> puzzleList;
   ArrayList<ModelObserver> modelObservers;
-  int puzzleIndex;
-
   public Puzzle activePuzzle;
 
   public ModelImpl(List<Clues> clues) {
-    puzzleList = new ArrayList<Puzzle>();
+    puzzleList = new ArrayList<>();
     for (int i = 0; i < clues.size(); i++) {
       puzzleList.add(new Puzzle(clues.get(i), i)); // create an list of puzzles with indicies
     }
@@ -143,7 +140,6 @@ public class ModelImpl implements Model {
   @Override
   public void toggleCellEliminated(int row, int col) {
     activePuzzle.getBoard().toggleCellEliminated(row, col);
-    notify();
   }
 
   @Override
