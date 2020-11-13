@@ -2,6 +2,7 @@ package com.comp301.a08nonograms.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.text.View;
 
 public class ModelImpl implements Model {
   ArrayList<Puzzle> puzzleList;
@@ -10,6 +11,7 @@ public class ModelImpl implements Model {
 
   public ModelImpl(List<Clues> clues) {
     puzzleList = new ArrayList<>();
+    modelObservers = new ArrayList<>();
     for (int i = 0; i < clues.size(); i++) {
       puzzleList.add(new Puzzle(clues.get(i), i)); // create an list of puzzles with indicies
     }
