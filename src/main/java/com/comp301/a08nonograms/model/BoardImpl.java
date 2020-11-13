@@ -21,7 +21,7 @@ public class BoardImpl implements Board {
 
   @Override
   public boolean isShaded(int row, int col) {
-    if(row >= rows || row < 0 || col >= columns || col < 0){
+    if (row >= board.length || row < 0 || col >= board[0].length || col < 0) {
       throw new RuntimeException();
     }
     return (board[row][col] == selection.SHADED);
@@ -29,7 +29,7 @@ public class BoardImpl implements Board {
 
   @Override
   public boolean isEliminated(int row, int col) {
-    if(row >= rows || row < 0 || col >= columns || col < 0){
+    if (row >= board.length || row < 0 || col >= board[0].length || col < 0) {
       throw new RuntimeException();
     }
     return (board[row][col] == selection.ELIMINATED);
@@ -37,7 +37,7 @@ public class BoardImpl implements Board {
 
   @Override
   public boolean isSpace(int row, int col) {
-    if(row >= rows || row < 0 || col >= columns || col < 0){
+    if (row >= board.length || row < 0 || col >= board[0].length || col < 0) {
       throw new RuntimeException();
     }
     return (board[row][col] == selection.SPACE);
@@ -45,7 +45,7 @@ public class BoardImpl implements Board {
 
   @Override
   public void toggleCellShaded(int row, int col) {
-    if(row >= rows || row < 0 || col >= columns || col < 0){
+    if (row >= board.length || row < 0 || col >= board[0].length || col < 0) {
       throw new RuntimeException();
     }
     if (board[row][col] == selection.SHADED) {
@@ -63,7 +63,7 @@ public class BoardImpl implements Board {
 
   @Override
   public void toggleCellEliminated(int row, int col) {
-    if(row >= rows || row < 0 || col >= columns || col < 0){
+    if (row >= board.length || row < 0 || col >= board[0].length || col < 0) {
       throw new RuntimeException();
     }
     if (board[row][col] == selection.ELIMINATED) {
@@ -81,8 +81,8 @@ public class BoardImpl implements Board {
 
   @Override
   public void clear() {
-    for (int i = 0; i < this.rows; i++) {
-      for (int j = 0; j < this.columns; j++) {
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board[0].length; j++) {
         board[i][j] = selection.SPACE;
       }
     }

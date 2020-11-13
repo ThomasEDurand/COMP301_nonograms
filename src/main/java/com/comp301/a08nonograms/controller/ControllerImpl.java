@@ -7,7 +7,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class ControllerImpl implements Controller {
-
   ModelImpl model;
 
   public ControllerImpl(ModelImpl model) {
