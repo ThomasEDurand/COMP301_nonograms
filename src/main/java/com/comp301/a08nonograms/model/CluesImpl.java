@@ -50,6 +50,7 @@ public class CluesImpl implements Clues {
     return colClues[0].length;
   }
 
+  // helper function
   public int getTotalShaded() {
     return totalShaded;
   }

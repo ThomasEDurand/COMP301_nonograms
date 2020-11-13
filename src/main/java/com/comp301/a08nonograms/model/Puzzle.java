@@ -8,16 +8,12 @@ public class Puzzle {
 
   public Puzzle(Clues clues, int puzzleIndex) {
     this.clue = (CluesImpl) clues;
-    this.board = new BoardImpl(clues.getRowCluesLength(), clues.getColCluesLength());
+    this.board = new BoardImpl(clues.getWidth(), clues.getHeight());
     this.puzzleIndex = puzzleIndex;
   }
 
   public int getPuzzleIndex() {
     return puzzleIndex;
-  }
-
-  public void setPuzzleIndex(int index) {
-    puzzleIndex = index;
   }
 
   public CluesImpl getClue() {

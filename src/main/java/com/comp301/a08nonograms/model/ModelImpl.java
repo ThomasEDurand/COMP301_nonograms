@@ -16,12 +16,11 @@ public class ModelImpl implements Model {
   public Puzzle activePuzzle;
 
   public ModelImpl(List<Clues> clues) {
-    puzzleList = new ArrayList<>();
+    puzzleList = new ArrayList<Puzzle>();
     for (int i = 0; i < clues.size(); i++) {
       puzzleList.add(new Puzzle(clues.get(i), i)); // create an list of puzzles with indicies
     }
     activePuzzle = puzzleList.get(0); // default set active puzzle as first puzzle
-    puzzleIndex = activePuzzle.getPuzzleIndex();
   }
 
   @Override
@@ -118,7 +117,7 @@ public class ModelImpl implements Model {
     }
 
     return true;
-  }
+  } // Needs work
 
   @Override
   public boolean isShaded(int row, int col) {
