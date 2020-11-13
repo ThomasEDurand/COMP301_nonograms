@@ -18,7 +18,6 @@ public class BoardImpl implements Board {
     clear();
   }
 
-
   @Override
   public boolean isShaded(int row, int col) {
     if (row >= board.length || row < 0 || col >= board[0].length || col < 0) {
@@ -52,7 +51,7 @@ public class BoardImpl implements Board {
       board[row][col] = selection.SPACE;
       numShaded--;
     } else if (board[row][col] == selection.SPACE) {
-      board[row][col] = selection.SPACE;
+      board[row][col] = selection.SHADED;
       numShaded++;
     } else { // if eliminated
       board[row][col] = selection.SHADED;

@@ -28,7 +28,7 @@ public class CluesImpl implements Clues {
   @Override
   public int getHeight() {
     return rowClues.length;
-  } // num of cols is the length
+  } // num of rows is the length
 
   @Override
   public int[] getRowClues(int index) {
