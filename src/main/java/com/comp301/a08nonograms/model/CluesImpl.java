@@ -42,5 +42,4 @@ public class CluesImpl implements Clues {
   public int getColCluesLength() {
     return colClues[0].length;
   }
-
 }

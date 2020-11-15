@@ -157,6 +157,4 @@ public class ModelImpl implements Model {
       modelObserver.update(this);
     }
   }
-
-
 }

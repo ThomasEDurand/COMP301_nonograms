@@ -17,6 +17,5 @@ public class AppLauncher extends Application {
 
     stage.setTitle("Nonograms");
     stage.show();
-
   }
 }

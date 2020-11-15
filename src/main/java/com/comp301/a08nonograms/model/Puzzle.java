@@ -23,8 +23,6 @@ public class Puzzle {
   public BoardImpl getBoard() {
     return board;
   }
-
-
 }
 
 
