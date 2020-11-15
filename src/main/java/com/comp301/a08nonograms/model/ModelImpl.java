@@ -49,9 +49,9 @@ public class ModelImpl implements Model {
 
     // quick check to see if number shaded on board = number shaded from clues
     // should fix edge case in for loops checking a cluster on that ends with the board
-    if (activePuzzle.getBoard().getNumShaded() != activePuzzle.getClue().getTotalShaded()) {
-      return false;
-    }
+//    if (activePuzzle.getBoard().getNumShaded() != activePuzzle.getClue().getTotalShaded()) {
+//      return false;
+//    }
 
     // rows
     for (int i = 0; i < activePuzzle.getClue().getHeight(); i++) {
@@ -72,6 +72,7 @@ public class ModelImpl implements Model {
       }
     }
 
+    // cols
     for (int i = 0; i < activePuzzle.getClue().getWidth(); i++) {
       int cluesSum = 0;
       for (int j = 0; j < activePuzzle.getClue().getColClues(i).length; j++) {
