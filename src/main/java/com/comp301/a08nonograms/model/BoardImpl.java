@@ -3,6 +3,7 @@ package com.comp301.a08nonograms.model;
 public class BoardImpl implements Board {
 
   public enum selection {SPACE, SHADED, ELIMINATED}
+
   public selection[][] board;
 
   public BoardImpl(int rows, int columns) {

@@ -4,8 +4,7 @@ import com.comp301.a08nonograms.model.Clues;
 
 public interface Controller {
 
-  /**
-   * Gets the clues for the active puzzle board */
+  /** Gets the clues for the active puzzle board */
   Clues getClues();
 
   /** Returns true only if the active puzzle board satisfies the puzzle's clues */
