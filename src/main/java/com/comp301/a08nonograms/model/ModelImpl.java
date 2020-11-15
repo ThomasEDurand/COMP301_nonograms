@@ -47,12 +47,6 @@ public class ModelImpl implements Model {
   @Override
   public boolean isSolved() {
 
-    // quick check to see if number shaded on board = number shaded from clues
-    // should fix edge case in for loops checking a cluster on that ends with the board
-//    if (activePuzzle.getBoard().getNumShaded() != activePuzzle.getClue().getTotalShaded()) {
-//      return false;
-//    }
-
     // rows
     for (int i = 0; i < activePuzzle.getClue().getHeight(); i++) {
       int cluesSum = 0;
