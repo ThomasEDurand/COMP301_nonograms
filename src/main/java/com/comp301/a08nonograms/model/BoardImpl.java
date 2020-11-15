@@ -2,7 +2,11 @@ package com.comp301.a08nonograms.model;
 
 public class BoardImpl implements Board {
 
-  public enum selection {SPACE, SHADED, ELIMINATED}
+  public enum selection {
+    SPACE,
+    SHADED,
+    ELIMINATED
+  }
 
   public selection[][] board;
 
@@ -43,8 +47,6 @@ public class BoardImpl implements Board {
     }
     if (board[row][col] == selection.SHADED) {
       board[row][col] = selection.SPACE;
-    } else if (board[row][col] == selection.SPACE) {
-      board[row][col] = selection.SHADED;
     } else { // if eliminated
       board[row][col] = selection.SHADED;
     }
@@ -57,8 +59,6 @@ public class BoardImpl implements Board {
     }
     if (board[row][col] == selection.ELIMINATED) {
       board[row][col] = selection.SPACE;
-    } else if (board[row][col] == selection.SPACE) {
-      board[row][col] = selection.ELIMINATED;
     } else { // if Shaded
       board[row][col] = selection.ELIMINATED;
     }

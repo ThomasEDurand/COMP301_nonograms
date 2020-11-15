@@ -8,8 +8,9 @@ public interface Board {
   /** Returns true if the cell at the given location is eliminated with an "x" */
   boolean isEliminated(int row, int col);
 
-  /** Returns true if the cell at the given location is blank (i.e. it is neither shaded nor
-   *  eliminated)
+  /**
+  * Returns true if the cell at the given location is blank (i.e. it is neither shaded nor
+  * eliminated)
   */
   boolean isSpace(int row, int col);
 
