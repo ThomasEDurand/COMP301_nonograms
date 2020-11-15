@@ -5,14 +5,13 @@ import com.comp301.a08nonograms.model.Model;
 import com.comp301.a08nonograms.model.ModelImpl;
 import java.util.concurrent.ThreadLocalRandom;
 
-
 public class ControllerImpl implements Controller {
+
   ModelImpl model;
 
   public ControllerImpl(ModelImpl model) {
     this.model = model;
   }
-
 
   @Override
   public Clues getClues() {

@@ -4,7 +4,6 @@ public class CluesImpl implements Clues {
 
   private int[][] rowClues;
   private int[][] colClues;
-  private int totalShaded;
 
   public CluesImpl(int[][] rowClues, int[][] colClues) {
     if (rowClues == null || colClues == null) {
@@ -12,12 +11,6 @@ public class CluesImpl implements Clues {
     }
     this.rowClues = rowClues;
     this.colClues = colClues;
-
-    for (int[] rowClue : rowClues) {
-      for (int i : rowClue) {
-        totalShaded += i;
-      }
-    }
   }
 
   @Override
@@ -48,11 +41,6 @@ public class CluesImpl implements Clues {
   @Override
   public int getColCluesLength() {
     return colClues[0].length;
-  }
-
-  // helper function
-  public int getTotalShaded() {
-    return totalShaded;
   }
 
 }
