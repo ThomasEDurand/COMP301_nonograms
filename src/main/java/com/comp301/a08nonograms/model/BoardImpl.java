@@ -5,14 +5,10 @@ public class BoardImpl implements Board {
   public enum selection {SPACE, SHADED, ELIMINATED}
 
   public selection[][] board;
-  private int rows;
-  private int columns;
   private int numShaded;
   private int numEliminated;
 
   public BoardImpl(int rows, int columns) {
-    this.rows = rows;
-    this.columns = columns;
     board = new selection[rows][columns];
     // Initialize all spaces in board array to SPACE
     clear();

@@ -2,9 +2,9 @@ package com.comp301.a08nonograms.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.text.View;
 
 public class ModelImpl implements Model {
+
   ArrayList<Puzzle> puzzleList;
   ArrayList<ModelObserver> modelObservers;
   public Puzzle activePuzzle;
@@ -53,62 +53,40 @@ public class ModelImpl implements Model {
       return false;
     }
 
-    // Check Row Clues
-    for (int i = 0; i < getHeight(); i++) { // for every row
+    // rows
+    for (int i = 0; i < activePuzzle.getClue().getHeight(); i++) {
+      int cluesSum = 0;
+      for (int j = 0; j < activePuzzle.getClue().getRowClues(i).length; j++) {
+        cluesSum += activePuzzle.getClue().getRowClues(i)[j];
+      }
 
-      int clusterSize = 0;
-      int clusterNumber = 0;
-      boolean inCluster = false;
-      for (int j = 0; j < getWidth(); j++) { // for each element of a row
-        if (isSpace(i, j)) {
-          return false; // Should be no spaces, only shaded and eliminated
-        } else if (isShaded(i, j)) {
-          inCluster = true;
-          if (clusterSize > activePuzzle.getClue().getRowClues(i)[clusterNumber]) {
-            return false;
-          }
-          clusterSize++;
-        } else { // eliminated, end of cluster
-          if (inCluster) {
-            if (clusterSize != activePuzzle.getClue().getRowClues(i)[clusterNumber]) {
-              return false;
-            } else {
-              inCluster = false;
-              clusterSize = 0;//
-              clusterNumber++;
-            }
-          }
+      int rowCount = 0;
+      for (int j = 0; j < activePuzzle.getBoard().board[i].length; j++) {
+        if (isShaded(i, j)) {
+          rowCount++;
         }
+      }
+
+      if (rowCount != cluesSum) {
+        return false;
       }
     }
 
-    // Check Col Clues
+    for (int i = 0; i < activePuzzle.getClue().getWidth(); i++) {
+      int cluesSum = 0;
+      for (int j = 0; j < activePuzzle.getClue().getColClues(i).length; j++) {
+        cluesSum += activePuzzle.getClue().getColClues(i)[j];
+      }
 
-    for (int i = 0; i < getWidth(); i++) { // for every column
-
-      int clusterSize = 0;
-      int clusterNumber = 0;
-      boolean inCluster = false;
-      for (int j = 0; j < getHeight(); j++) { // for each element of a row
-        if (isSpace(j, i)) {
-          return false; // Should be no spaces, only shaded and eliminated
-        } else if (isShaded(j, i)) {
-          inCluster = true;
-          if (clusterSize > activePuzzle.getClue().getColClues(i)[clusterNumber]) {
-            return false;
-          }
-          clusterSize++;
-        } else { // eliminated, end of cluster
-          if (inCluster) {
-            if (clusterSize != activePuzzle.getClue().getColClues(i)[clusterNumber]) {
-              return false;
-            } else {
-              inCluster = false;
-              clusterSize = 0;//
-              clusterNumber++;
-            }
-          }
+      int rowCount = 0;
+      for (int j = 0; j < activePuzzle.getClue().getHeight(); j++) {
+        if (isShaded(j, i)) {
+          rowCount++;
         }
+      }
+
+      if (rowCount != cluesSum) {
+        return false;
       }
     }
 
