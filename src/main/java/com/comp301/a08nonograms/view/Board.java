@@ -25,24 +25,29 @@ public class Board implements FXComponent {
     for (int i = 0; i < height; i++) {
       for (int j = 0; j < width; j++) {
 
-        Button gridButton = new Button();
-        // gridButton.setStyle("-fx-background-color: white"); // initialize to white
-
         // required for lambda
         int finalI = i;
         int finalJ = j;
+
+        Button gridButton = new Button();
+        if (controller.isShaded(finalI, finalJ)) {
+          gridButton.setStyle("-fx-background-color: black");
+        } else if (controller.isEliminated(finalI, finalJ)) {
+          gridButton.setStyle("-fx-background-color: red");
+        }
+
         gridButton.setOnMousePressed(
             (MouseEvent event) -> {
               if (event.getButton() == MouseButton.PRIMARY) {
                 controller.toggleShaded(finalI, finalJ);
               } else if (event.getButton() == MouseButton.SECONDARY) {
-                controller.isEliminated(finalI, finalJ);
+                controller.toggleEliminated(finalI, finalJ);
               } // do not want functionality for buttons besides m1 and m2
             });
-        gridButton.setMaxHeight(25);
-        gridButton.setMinHeight(25);
-        gridButton.setMaxWidth(25);
-        gridButton.setMinWidth(25);
+        gridButton.setMaxHeight(32);
+        gridButton.setMinHeight(32);
+        gridButton.setMaxWidth(32);
+        gridButton.setMinWidth(32);
         gridPane.add(gridButton, finalJ, finalI);
       }
     }

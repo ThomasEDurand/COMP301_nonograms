@@ -26,7 +26,8 @@ public class ViewImpl implements FXComponent {
     ColClues colClues = new ColClues(controller);
     layout.setTop(colClues.render());
 
-    // TODO: SCENE
+    FinishedButton finishedButton = new FinishedButton(controller);
+    layout.setBottom(finishedButton.render());
 
     // Nanogram
 

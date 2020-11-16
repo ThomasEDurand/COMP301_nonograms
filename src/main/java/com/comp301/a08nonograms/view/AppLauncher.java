@@ -2,6 +2,7 @@ package com.comp301.a08nonograms.view;
 
 import com.comp301.a08nonograms.PuzzleLibrary;
 import com.comp301.a08nonograms.controller.ControllerImpl;
+import com.comp301.a08nonograms.model.Model;
 import com.comp301.a08nonograms.model.ModelImpl;
 import com.comp301.a08nonograms.model.ModelObserver;
 import javafx.application.Application;
@@ -28,6 +29,11 @@ public class AppLauncher extends Application {
 
     Scene scene = new Scene(view.render(), 400, 500);
     stage.setScene(scene);
+
+    model.addObserver(
+        (Model m) -> {
+          stage.setScene(new Scene(view.render()));
+        });
 
     stage.show();
   }

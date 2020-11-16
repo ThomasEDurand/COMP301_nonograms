@@ -38,25 +38,15 @@ public class Controls implements FXComponent {
     nextPuzzle.setText("next");
     nextPuzzle.setOnAction(actionEvent -> controller.nextPuzzle());
 
-    Button puzzleFinished = new Button();
-    puzzleFinished.setText("finished");
-    puzzleFinished.setOnAction(
-        actionEvent -> {
-          if (controller.isSolved()) {
-            System.out.println("SOLVED!");
-          } else {
-            System.out.println("Not solved");
-          }
-        });
-
     Text puzzleNo =
         new Text(
-            0, 0, "Puzzle " + controller.getPuzzleIndex() + "/ " + controller.getPuzzleCount());
+            0,
+            0,
+            "Puzzle " + (controller.getPuzzleIndex() + 1) + "/ " + controller.getPuzzleCount());
     layout.add(puzzleNo, 0, 0);
     layout.add(previousPuzzle, 0, 1);
     layout.add(randomPuzzle, 0, 2);
     layout.add(nextPuzzle, 0, 3);
-    layout.add(puzzleFinished, 0, 4);
 
     return layout;
   }
