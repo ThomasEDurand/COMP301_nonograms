@@ -45,19 +45,19 @@ public class ControllerImpl implements Controller {
 
   @Override
   public void nextPuzzle() {
-    if (getPuzzleIndex() < getPuzzleCount() - 1) {
-      model.setPuzzleIndex(getPuzzleIndex() + 1);
-    } else {
+    if (getPuzzleIndex() == getPuzzleCount() - 1) { // if index is the last one, go to zero
       model.setPuzzleIndex(0);
+    } else {
+      model.setPuzzleIndex(getPuzzleIndex() + 1); // otherwise go up one
     }
   }
 
   @Override
   public void prevPuzzle() {
-    if (getPuzzleIndex() > 0) {
-      model.setPuzzleIndex(getPuzzleIndex() - 1);
-    } else {
+    if (getPuzzleIndex() == 0) {
       model.setPuzzleIndex(getPuzzleCount() - 1);
+    } else {
+      model.setPuzzleIndex(getPuzzleIndex() - 1);
     }
   }
 

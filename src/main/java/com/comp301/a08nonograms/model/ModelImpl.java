@@ -86,7 +86,7 @@ public class ModelImpl implements Model {
     }
 
     return true;
-  } // Needs work
+  }
 
   @Override
   public boolean isShaded(int row, int col) {

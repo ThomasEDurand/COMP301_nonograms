@@ -1,5 +1,6 @@
 package com.comp301.a08nonograms.view;
 
+import java.awt.TextArea;
 import javafx.scene.Parent;
 
 public interface FXComponent {
