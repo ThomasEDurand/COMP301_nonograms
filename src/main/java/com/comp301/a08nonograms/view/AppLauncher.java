@@ -26,12 +26,9 @@ public class AppLauncher extends Application {
     stage.setTitle("NONOGRAMS");
     ViewImpl view = new ViewImpl(controller);
 
-    
-    Scene scene = new Scene(view.render(), 720, 600);
+    Scene scene = new Scene(view.render(), 400, 500);
     stage.setScene(scene);
 
-
     stage.show();
-
   }
 }

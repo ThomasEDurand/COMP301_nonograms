@@ -63,7 +63,7 @@ public class ControllerImpl implements Controller {
 
   @Override
   public void randPuzzle() {
-    int randomNum = ThreadLocalRandom.current().nextInt(0, getPuzzleCount() + 1);
+    int randomNum = ThreadLocalRandom.current().nextInt(0, getPuzzleCount());
     model.setPuzzleIndex(randomNum);
   }
 

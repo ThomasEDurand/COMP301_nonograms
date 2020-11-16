@@ -5,26 +5,33 @@ import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-public class ViewImpl implements FXComponent{
+public class ViewImpl implements FXComponent {
   Controller controller;
 
-  public ViewImpl(Controller controller){
+  public ViewImpl(Controller controller) {
     this.controller = controller;
   }
 
   @Override
   public Parent render() {
-    VBox layout = new VBox();
+    BorderPane layout = new BorderPane();
+    // Buttons
     Controls controls = new Controls(controller);
-    layout.getChildren().add(controls.render());
+    layout.setRight(controls.render());
+
+    // Clues
+    RowClues rowClues = new RowClues(controller);
+    layout.setLeft(rowClues.render());
+
+    ColClues colClues = new ColClues(controller);
+    layout.setTop(colClues.render());
 
     // TODO: SCENE
-
 
     // Nanogram
 
     Board board = new Board(controller);
-    layout.getChildren().add(board.render());
+    layout.setCenter(board.render());
 
     return layout;
   }
