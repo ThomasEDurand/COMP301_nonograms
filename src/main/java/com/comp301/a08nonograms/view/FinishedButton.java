@@ -24,7 +24,7 @@ public class FinishedButton implements FXComponent {
     puzzleFinished.setOnAction(
         actionEvent -> {
           if (controller.isSolved()) {
-            layout.add(new Text(0, 0, " Solved!"), 0, 1);
+            layout.add(new Text(0, 0, " Solved!"), 1, 0);
           } else {
             layout.add(new Text(0, 0, " Not Solved"), 1, 0);
           }
